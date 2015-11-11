@@ -10,6 +10,17 @@ set(LICENSE "BSD")
 set(RPM_APP_GROUP "Development/Tools")
 set(GITHUB_URL "https://github.com/danse-inelastic/dsm")
 
+# packaging with the help of docker and packagecloud
+# package repository at packagecloud
+set (PKGCLOUD_USERNAME "danse")
+set (PKGCLOUD_REPO "ins")
+# dependencies
+set (DOCKER_PKGING_DEPS_DEB "danse.ins")
+set (DOCKER_PKGING_DEPS_RPM "danse.ins")
+set (DOCKER_PKGING_TEST_SRPM ". /opt/danse/bin/setup-danse.sh && python -c 'import danse.ins.dsm as p; print p'")
+set (DOCKER_PKGING_TEST_RPM ${DOCKER_PKGING_TEST_SRPM})
+set (DOCKER_PKGING_TEST_DEB ${DOCKER_PKGING_TEST_SRPM})
+
 # variables
 set (PYBINDING_NAME "${PROJECT_NAME}module")
 set (LIB_NAME "danse_ins_${PROJECT_NAME}")
@@ -110,4 +121,12 @@ add_custom_target(
   )
 
 # docker folder for build and test packaging artifacts
+execute_process(
+  COMMAND rm -rf docker
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  )
+execute_process(
+  COMMAND git clone https://github.com/danse-inelastic/packaging-use-docker docker
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  )
 add_subdirectory(docker)
