@@ -14,6 +14,9 @@ set(GITHUB_URL "https://github.com/danse-inelastic/dsm")
 # package repository at packagecloud
 set (PKGCLOUD_USERNAME "danse")
 set (PKGCLOUD_REPO "ins")
+# debian
+set(DOCKER_PKGING_DEB_DIST_NAME "ubuntu")
+set(DOCKER_PKGING_DEB_DIST_VERSION "12.04")
 # dependencies
 set (DOCKER_PKGING_DEPS_DEB "danse.ins")
 set (DOCKER_PKGING_DEPS_RPM "danse.ins")
