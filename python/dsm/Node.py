@@ -14,7 +14,7 @@
 
 class Node:
 
-    def __init__(self, inSocket, component, outSocket ):
+    def __init__(self, inSocket, component, outSocket):
         #component should be an instance of Connectable
         self.inSocket = inSocket
         self.component = component
@@ -22,7 +22,7 @@ class Node:
         return
 
 
-    pass # end of Node
+    pass  # end of Node
 
 
 # version

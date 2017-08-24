@@ -12,20 +12,20 @@
 #
 
 
-def run( runnable, stream = None ):
+def run(runnable, stream=None):
     from Runner import Runner
     r = Runner()
-    return r( runnable, stream )
+    return r(runnable, stream)
 
 
 def node(inSocket, component, outSocket):
     from Node import Node
-    return Node( inSocket, component, outSocket )
+    return Node(inSocket, component, outSocket)
 
 
-def composite( components, connections ):
+def composite(components, connections):
     from Composite import Composite
-    return Composite( components, connections )
+    return Composite(components, connections)
 
 
 def chain():
@@ -41,4 +41,4 @@ def chains():
 # version
 __id__ = "$Id$"
 
-# End of file 
+# End of file

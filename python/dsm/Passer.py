@@ -14,7 +14,7 @@
 
 from Connectable import Connectable
 
-class Passer( Connectable ):
+class Passer(Connectable):
 
     '''trivial connectable'''
 
@@ -31,7 +31,7 @@ class Passer( Connectable ):
     def getOutput(self, name):
         return self._inputs[name]
 
-    pass # end of Passer
+    pass  # end of Passer
     
 
 # version
