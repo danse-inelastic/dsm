@@ -22,7 +22,7 @@ class Chains:
     def __iter__(self): return self._store.__iter__()
 
 
-    def add(self, chain): self._store.append( chain)
+    def add(self, chain): self._store.append(chain)
 
 
     def identify(self, visitor): return visitor.onChains(self)

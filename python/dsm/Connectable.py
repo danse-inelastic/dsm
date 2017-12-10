@@ -17,8 +17,8 @@ class InvalidSocket(Exception): pass
 class Connectable:
 
     sockets = {
-        'in': [ ],
-        'out': [ ],
+        'in': [],
+        'out': [],
         }
 
     def __init__(self):
@@ -26,20 +26,20 @@ class Connectable:
         self._outputs = {}
         self._consumedInputs = self._inputs.copy()
         return
-    
-    
+
+
     def setInput(self, name, value):
         if name not in self.sockets['in']:
-            raise InvalidSocket , "%s, Unknown input socket: %s" % (
-                self, name)
+            raise InvalidSocket("{0}, Unknown input socket: {1}".format(
+                self, name))
         self._inputs[name] = value
         return
 
-        
+
     def getOutput(self, name):
         if name not in self.sockets['out']:
-            raise InvalidSocket , "%s, Unknown output socket: %s" % (
-                self, name)
+            raise InvalidSocket("{0}, Unknown output socket: {1}".format(
+                self, name))
         self._updateIfNecessary()
         return self._outputs[name]
 
@@ -47,9 +47,9 @@ class Connectable:
     def __str__(self):
         return self.__class__.__name__
 
-    
+
     def _update(self):
-        raise NotImplementedError, "%s" % self.__class__
+        raise NotImplementedError("{}".format(self.__class__))
 
 
     def _getInput(self, name):
@@ -59,9 +59,9 @@ class Connectable:
 
     def _setOutput(self, name, value):
         '''only useful for friendly class'''
-        self._outputs[name ] = value
+        self._outputs[name] = value
         return
-    
+
 
     def _updateIfNecessary(self):
         if self._consumedInputs == self._inputs and self._outputs != {}: return
@@ -69,10 +69,10 @@ class Connectable:
         self._consumedInputs = self._inputs.copy()
         return
 
-    pass # end of Connectable
+    pass  # end of Connectable
 
 
 # version
 __id__ = "$Id$"
 
-# End of file 
+# End of file

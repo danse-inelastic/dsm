@@ -13,13 +13,13 @@
 
 
 import journal
-info = journal.info( 'dsm.Runner' )
+info = journal.info('dsm.Runner')
 
 
 class Runner:
 
 
-    def __call__(self, runable, stream = None):
+    def __call__(self, runable, stream=None):
         self.stream = stream
         return runable.identify(self)
 
@@ -31,9 +31,9 @@ class Runner:
 
     def onChain(self, chain):
         for node in chain:
-            self.onNode( node )
+            self.onNode(node)
             if node is not chain.last():
-                self.onConnection( (node, node.next) )
+                self.onConnection((node, node.next))
                 pass
             continue
         return
@@ -45,32 +45,32 @@ class Runner:
         component = node.component
         outSocket = node.outSocket
 
-        info.log( "Send %s to socket %s of component %s" % (
-            self.stream, inSocket, component) )
-        if inSocket: component.setInput( inSocket, self.stream )
+        info.log("Send {0} to socket {1} of component {2}".format(
+            self.stream, inSocket, component))
+        if inSocket: component.setInput(inSocket, self.stream)
 
-        info.log( "Component %s is running" % (component,))
-        if outSocket: self.stream = component.getOutput( outSocket )
+        info.log("Component {} is running".format(component))
+        if outSocket: self.stream = component.getOutput(outSocket)
 
-        info.log( "Retrive output from socket %s of component %s: %s" % (
-            outSocket, component, self.stream) )
+        info.log("Retrive output from socket {} of component {}: {}".format(
+            outSocket, component, self.stream))
         return
-    
-    
-    def onConnection(self, connection ):
+
+
+    def onConnection(self, connection):
         '''pass stream along the connection establish
         '''
-        #self.stream = ...
-        #trivial implementation
-        return 
+        # self.stream = ...
+        # trivial implementation
+        return
 
 
-    pass # end of Runner
+    pass  # end of Runner
 
 
 
 def test():
-    from Connectable import Connectable
+    from .Connectable import Connectable
     class A(Connectable):
         sockets = {
             'out': ['1'],
@@ -80,8 +80,8 @@ def test():
             return
         pass
     a = A()
-    
-    from Passer import Passer
+
+    from .Passer import Passer
     class B(Passer):
         sockets = {
             'in': ['1'],
@@ -100,26 +100,26 @@ def test():
             return
         pass
     c = C()
-    
-    from Node import Node
-    n1 = Node( None, a, '1' )
-    n2 = Node( '1', b, '1' )
-    n3 = Node( 'in3', c, None )
-    
-    from Chain import Chain
+
+    from .Node import Node
+    n1 = Node(None, a, '1')
+    n2 = Node('1', b, '1')
+    n3 = Node('in3', c, None)
+
+    from .Chain import Chain
     ch = Chain()
-    ch.append( n1 )
-    ch.append( n2 )
-    ch.append( n3 )
-    
-    from Chains import Chains
+    ch.append(n1)
+    ch.append(n2)
+    ch.append(n3)
+
+    from .Chains import Chains
     cs = Chains()
-    cs.add( ch )
+    cs.add(ch)
 
     r = Runner()
-    r( cs )
+    r(cs)
 
-    assert c.getOutput( 'out' ) == 1
+    assert c.getOutput('out') == 1
     return
 
 
@@ -134,4 +134,4 @@ if __name__ == '__main__': main()
 # version
 __id__ = "$Id$"
 
-# End of file 
+# End of file

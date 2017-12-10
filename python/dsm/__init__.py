@@ -12,7 +12,7 @@
 #
 
 
-from _convenient_functions import *
+from ._convenient_functions import *
 
 # version
 __id__ = "$Id$"
