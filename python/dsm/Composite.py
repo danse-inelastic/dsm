@@ -14,7 +14,7 @@
 
 from .Connectable import Connectable
 from .Passer import Passer
-import _convenient_functions as dsm
+from . import _convenient_functions as dsm
 
 
 import journal
