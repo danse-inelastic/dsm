@@ -70,7 +70,7 @@ class Runner:
 
 
 def test():
-    from Connectable import Connectable
+    from .Connectable import Connectable
     class A(Connectable):
         sockets = {
             'out': ['1'],
@@ -81,7 +81,7 @@ def test():
         pass
     a = A()
 
-    from Passer import Passer
+    from .Passer import Passer
     class B(Passer):
         sockets = {
             'in': ['1'],
@@ -101,18 +101,18 @@ def test():
         pass
     c = C()
 
-    from Node import Node
+    from .Node import Node
     n1 = Node(None, a, '1')
     n2 = Node('1', b, '1')
     n3 = Node('in3', c, None)
 
-    from Chain import Chain
+    from .Chain import Chain
     ch = Chain()
     ch.append(n1)
     ch.append(n2)
     ch.append(n3)
 
-    from Chains import Chains
+    from .Chains import Chains
     cs = Chains()
     cs.add(ch)
 

@@ -13,28 +13,28 @@
 
 
 def run(runnable, stream=None):
-    from Runner import Runner
+    from .Runner import Runner
     r = Runner()
     return r(runnable, stream)
 
 
 def node(inSocket, component, outSocket):
-    from Node import Node
+    from .Node import Node
     return Node(inSocket, component, outSocket)
 
 
 def composite(components, connections):
-    from Composite import Composite
+    from .Composite import Composite
     return Composite(components, connections)
 
 
 def chain():
-    from Chain import Chain
+    from .Chain import Chain
     return Chain()
 
 
 def chains():
-    from Chains import Chains
+    from .Chains import Chains
     return Chains()
 
 

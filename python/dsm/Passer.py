@@ -12,7 +12,7 @@
 #
 
 
-from Connectable import Connectable
+from .Connectable import Connectable
 
 class Passer(Connectable):
 

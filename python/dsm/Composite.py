@@ -12,8 +12,8 @@
 #
 
 
-from Connectable import Connectable
-from Passer import Passer
+from .Connectable import Connectable
+from .Passer import Passer
 import _convenient_functions as dsm
 
 
@@ -143,7 +143,7 @@ class Composite(Connectable):
 
 
 def main():
-    from Connectable import Connectable
+    from .Connectable import Connectable
     class Adder(Connectable):
 
         sockets = {
