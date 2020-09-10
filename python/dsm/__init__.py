@@ -1,20 +1,9 @@
 #!/usr/bin/env python
 #
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#                                   Jiao Lin
-#                      California Institute of Technology
-#                        (C) 2007  All Rights Reserved
-#
-# {LicenseText}
-#
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 
+__version__ = "0.1.2"
 
 from ._convenient_functions import *
-
-# version
-__id__ = "$Id$"
 
 # End of file 
